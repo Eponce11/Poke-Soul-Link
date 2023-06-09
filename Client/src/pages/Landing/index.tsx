@@ -1,27 +1,35 @@
-
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../app/store";
-import { getInitialPokemonData } from "../../app/reducers/getInitialPokemonData";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { getInitialPokemonData } from "../../utils";
+import { setInitialPokemon } from "../../app/slices/PokemonSlice";
 
 const Landing = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const initialPokemon = useAppSelector((state) => state.pokemon.allPokemon);
 
-  const dispatch =  useDispatch();
+  const fetchData = async () => {
+    if (!initialPokemon) {
+      const pokemonData = await getInitialPokemonData();
+      console.log(pokemonData.data.results);
+      dispatch(setInitialPokemon(pokemonData.data.results));
+    }
+  };
 
-  const test = useSelector((state:RootState) =>  getInitialPokemonData())
-  
+  useEffect(() => {
+    fetchData();
+  });
 
-  useEffect( () => {
-
-  })
-
-
-    return (
-        <div>
-
-            Hello WOrld
-        </div>
-    )
-}
+  return (
+    <div
+      onClick={() => {
+        navigate("/home");
+      }}
+    >
+      Hello WOrld
+    </div>
+  );
+};
 
 export default Landing;
