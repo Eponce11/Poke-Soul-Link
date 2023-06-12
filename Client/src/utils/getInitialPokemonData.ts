@@ -1,9 +1,9 @@
 import axios from "axios";
 import { pokemonAPI } from "./constants";
-const pokemonsRoute = `${pokemonAPI}/pokemon?limit=5000`;
+const pokemonRoute = `${pokemonAPI}/pokemon?limit=5000`;
 
 const getInitialPokemonData = async () => {
-  return await axios.get(pokemonsRoute);
+  return await axios.get(pokemonRoute);
 };
 
 export default getInitialPokemonData;
