@@ -10,6 +10,10 @@ const AttemptSchema = new Schema<Attempt>({
     type: String,
     required: [true, "is required"]
   },
+  generation: {
+    type: String,
+    required: [true, "is required"]
+  },
   routes: {
     type: Set<string>,
     required: [true, "is required"]

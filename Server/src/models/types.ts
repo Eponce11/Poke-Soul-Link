@@ -1,6 +1,7 @@
 export interface Attempt {
   attemptNumber: number;
   game: string;
+  generation: string;
   routes: Set<string>;
   players: Array<Player>;
 }
