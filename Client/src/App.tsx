@@ -1,7 +1,7 @@
 
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Landing, Home } from './pages'
+import { Landing, Home, NewAttempt } from './pages'
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Landing/>}/>
           <Route path='/home' element={<Home/>}/>
+          <Route path='/newAttempt' element={<NewAttempt/>}/>
         </Routes>
       </Router>
     </div>
