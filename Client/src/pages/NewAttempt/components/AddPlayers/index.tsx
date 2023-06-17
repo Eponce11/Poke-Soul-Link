@@ -27,6 +27,7 @@ const AddPlayers = (props: any) => {
       <button onClick={() => setCurrentStep((prev: number) => prev - 1)}>
         Back
       </button>
+      <button onClick={() => setCurrentStep((prev:number) => prev + 1)}>Next</button>
     </>
   );
 };

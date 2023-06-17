@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SelectGen, SelectGame, AddPlayers } from "./components";
+import { SelectGen, SelectGame, AddPlayers, Review } from "./components";
 
 const NewAttempt = () => {
   const [selectedGen, setSelectedGen] = useState<string>("1");
@@ -28,6 +28,14 @@ const NewAttempt = () => {
             setCurrentStep={setCurrentStep}
             players={players}
             setPlayers={setPlayers}
+          />
+        )}
+        {currentStep === 4 && (
+          <Review
+            setCurrentStep={setCurrentStep}
+            selectedGen={selectedGen}
+            gameVersion={gameVersion}
+            players={players}
           />
         )}
       </div>
